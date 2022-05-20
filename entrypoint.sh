@@ -1,11 +1,12 @@
 #!/bin/bash
 set -e
 
-if [ -z "$1" ] || [ -z "$2" ]; then
+if [ -z "${INPUT_INPUT_PATH}" ] || [ -z "${INPUT_OUTPUT_PATH}" ]; then
   echo "Please provide all required variables"
   exit 1
 fi
 
-echo "Path name: ${INPUT_INPUT_PATH}"
-# Test
-javascript-obfuscator $1 --output $2
+echo "Input path: ${INPUT_INPUT_PATH}"
+echo "Output path: ${INPUT_OUTPUT_PATH}"
+
+javascript-obfuscator ${INPUT_INPUT_PATH} --output ${INPUT_OUTPUT_PATH}

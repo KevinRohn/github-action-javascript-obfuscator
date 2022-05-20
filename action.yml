@@ -5,160 +5,160 @@ inputs:
   input_path: 
     description: 'Single file or directory'
     required: true
-  output-path: 
+  output_path: 
     description: 'Output path for single file or directory'
     required: true
   compact:
     description: '<boolean> Disable one line output code compacting'
     required: false
-  control-flow-flattening:
+  control_flow_flattening:
     description: '<boolean> Enables control flow flattening'
     required: false
-  control-flow-flattening-threshold:
+  control_flow_flattening_threshold:
     required: false
     description: '<number> The probability that the control flow flattening transformation will be applied to the node'
-  dead-code-injection:
+  dead_code_injection:
     required: false
     description: '<boolean> Enables dead code injection'
-  dead-code-injection-threshold:
+  dead_code_injection_threshold:
     required: false
     description: '<number> The probability that the dead code injection transformation will be applied to the node'
-  debug-protection:
+  debug_protection:
     required: false
     description: '<boolean> Disable browser Debug panel (can cause DevTools enabled browser freeze)'
-  debug-protection-interval:
+  debug_protection_interval:
     required: false
     description: '<number> Sets interval in milliseconds for debug protection so it is working even after page was loaded (can cause DevTools enabled browser freeze)'
-  disable-console-output:
+  disable_console_output:
     required: false
     description: '<boolean> Allow console.log, console.info, console.error and console.warn messages output into browser console'
-  domain-lock:
+  domain_lock:
     required: false
     description: '<list> (comma separated, without whitespaces) Allows to run the obfuscated source code only on specific domains and/or sub-domains (comma separated)'
-  domain-lock-redirect-url:
+  domain_lock_redirect_url:
     required: false
     description: '<string> Allows the browser to be redirected to a passed URL if the source code is not run on the domains specified by --domain-lock'
   exclude:
     required: false
     description: '<list> (comma separated, without whitespaces) A filename or glob which indicates files to exclude from obfuscation'
-  force-transform-strings:
+  force_transform_strings:
     required: false
     description: '<list> (comma separated, without whitespaces) Enables force transformation of string literals, which being matched by passed RegExp patterns (comma separated)'
-  identifier-names-cache-path:
+  identifier_names_cache_path:
     required: false
     description: '<string> Sets path for identifier names cache'
-  identifier-names-generator:
+  identifier_names_generator:
     required: false
     description: '<string> Sets identifier names generator. Values: dictionary, hexadecimal, mangled, mangled-shuffled. Default: hexadecimal'
-  identifiers-dictionary:
+  identifiers_dictionary:
     required: false
     description: '<list> (comma separated, without whitespaces) Sets prefix for all global identifiers'
-  identifiers-prefix:
+  identifiers_prefix:
     required: false
     description: '<string> Identifiers dictionary (comma separated) for `--identifier-names-generator dictionary` option'
-  ignore-imports:
+  ignore_imports:
     required: false
     description: '<boolean> Prevents obfuscation of `require` and `dynamic` imports'
   log:
     required: false
     description: '<boolean> Enables logging of the information to the console'
-  numbers-to-expressions:
+  numbers_to_expressions:
     required: false
     description: '<boolean> Enables numbers conversion to expressions'
-  options-preset:
+  options_preset:
     required: false
     description: '<string> Allows to set options preset. Values: default, low-obfuscation, medium-obfuscation, high-obfuscation. Default: default'
-  rename-globals:
+  rename_globals:
     required: false
     description: '<boolean> Allows to enable obfuscation of global variable and function names with declaration'
-  rename-properties:
+  rename_properties:
     required: false
     description: '<boolean> UNSAFE: Enables renaming of property names. This probably MAY break your code'
-  rename-properties-mode:
+  rename_properties_mode:
     required: false
     description: '<boolean> Specify `--rename-properties` option mode. Values: safe, unsafe. Default: safe'
-  reserved-names:
+  reserved_names:
     required: false
     description: '<list> (comma separated, without whitespaces) Disables obfuscation and generation of identifiers, which being matched by passed RegExp patterns (comma separated)'
-  reserved-strings:
+  reserved_strings:
     required: false
     description: '<list> (comma separated, without whitespaces) Disables transformation of string literals, which being matched by passed RegExp patterns (comma separated)'
   seed:
     required: false
     description: '<string|number> Sets seed for random generator. This is useful for creating repeatable results.'
-  self-defending:
+  self_defending:
     required: false
     description: '<boolean> Disables self-defending for obfuscated code'
   simplify:
     required: false
     description: '<boolean> Enables additional code obfuscation through simplification'
-  source-map:
+  source_map:
     required: false
     description: '<boolean> Enables source map generation'
-  source-map-base-url:
+  source_map_base_url:
     required: false
     description: '<string> Sets base url to the source map import url when `--source-map-mode=separate`'
-  source-map-file-name:
+  source_map_file_name:
     required: false
     description: 'S<string> ets file name for output source map when `--source-map-mode=separate`'
-  source-map-mode:
+  source_map_mode:
     required: false
     description: '<string> Specify source map output mode. Values: inline, separate. Default: separate'
-  source-map-sources-mode:
+  source_map_sources_mode:
     required: false
     description: '<string> Specify source map sources mode. Values: sources, sources-content. Default: sources-content'
-  split-strings: 
+  split_strings: 
     required: false
     description: '<boolean> Splits literal strings into chunks with length of `splitStringsChunkLength` option value'
-  split-strings-chunk-length:
+  split_strings_chunk_length:
     required: false
     description: '<number> Sets chunk length of `splitStrings` option'
-  string-array:
+  string_array:
     required: false
     description: '<boolean> Enables gathering of all literal strings into an array and replacing every literal string with an array call'
-  string-array-calls-transform:
+  string_array_calls_transform:
     required: false
     description: '<boolean> Enables the transformation of calls to the string array'
-  string-array-calls-transform-threshold:
+  string_array_calls_transform_threshold:
     required: false
     description: '<number> The probability that that calls to the string array will be transformed'
-  string-array-encoding:
+  string_array_encoding:
     required: false
     description: 'list> (comma separated, without whitespaces) Encodes each string in strings array using base64 or rc4 (this option can slow down your code speed). Values: none, base64, rc4. Default: none'
-  string-array-indexes-type:
+  string_array_indexes_type:
     required: false
     description: '<list> (comma separated, without whitespaces) Encodes each string in strings array using base64 or rc4 (this option can slow down your code speed). Values: hexadecimal-number, hexadecimal-numeric-string. Default: hexadecimal-number'
-  string-array-index-shift:
+  string_array_index_shift:
     required: false
     description: '<boolean> Enables additional index shift for all string array calls'
-  string-array-rotate:
+  string_array_rotate:
     required: false
     description: '<boolean> Enable rotation of string array values during obfuscation'
-  string-array-shuffle:
+  string_array_shuffle:
     required: false
     description: '<boolean> Randomly shuffles string array items'
-  string-array-wrappers-count:
+  string_array_wrappers_count:
     required: false
     description: '<number> Sets the count of wrappers for the string array inside each root or function scope'
-  string-array-wrappers-chained-calls: 
+  string_array_wrappers_chained_calls: 
     required: false
     description: '<boolean> Enables the chained calls between string array wrappers'
-  string-array-wrappers-parameters-max-count:
+  string_array_wrappers_parameters_max_count:
     required: false
     description: '<number> Allows to control the maximum number of string array wrappers parameters'
-  string-array-wrappers-type:
+  string_array_wrappers_type:
     required: false
     description: '<string> Allows to select a type of the wrappers that are appending by the `--string-array-wrappers-count` option. Values: variable, function. Default: variable'
-  string-array-threshold:
+  string_array_threshold:
     required: false
     description: '<number> The probability that the literal string will be inserted into stringArray (Default: 0.8, Min: 0, Max: 1)'
   target:
     required: false
     description: '<string> Allows to set target environment for obfuscated code. Values: browser, browser-no-eval, node. Default: browser'
-  transform-object-keys:
+  transform_object_keys:
     required: false
     description: '<boolean> Enables transformation of object keys'
-  unicode-escape-sequence:
+  unicode_escape_sequence:
     required: false
     description: '<boolean> Allows to enable/disable string conversion to unicode escape sequence'
 
@@ -167,57 +167,57 @@ runs:
   image: 'Dockerfile'
   args:
     - ${{ inputs.input_path }}
-    - ${{ inputs.output-path }}
-    - ${{ inputs.control-flow-flattening }}
-    - ${{ inputs.control-flow-flattening-threshold }}
-    - ${{ inputs.dead-code-injection }}
-    - ${{ inputs.dead-code-injection-threshold }}
-    - ${{ inputs.debug-protection }}
-    - ${{ inputs.debug-protection-interval }}
-    - ${{ inputs.disable-console-output }}
-    - ${{ inputs.domain-lock }}
-    - ${{ inputs.domain-lock-redirect-url }}
+    - ${{ inputs.output_path }}
+    - ${{ inputs.control_flow_flattening }}
+    - ${{ inputs.control_flow_flattening_threshold }}
+    - ${{ inputs.dead_code_injection }}
+    - ${{ inputs.dead_code_injection_threshold }}
+    - ${{ inputs.debug_protection }}
+    - ${{ inputs.debug_protection-interval }}
+    - ${{ inputs.disable_console_output }}
+    - ${{ inputs.domain_lock }}
+    - ${{ inputs.domain_lock_redirect_url }}
     - ${{ inputs.exclude }}
-    - ${{ inputs.force-transform-strings }}
-    - ${{ inputs.identifier-names-cache-path }}
-    - ${{ inputs.identifier-names-generator }}
-    - ${{ inputs.identifiers-prefix }}
-    - ${{ inputs.identifiers-dictionary }}
-    - ${{ inputs.ignore-imports }}
+    - ${{ inputs.force_transform_strings }}
+    - ${{ inputs.identifier_names_cache_path }}
+    - ${{ inputs.identifier_names_generator }}
+    - ${{ inputs.identifiers_prefix }}
+    - ${{ inputs.identifiers_dictionary }}
+    - ${{ inputs.ignore_imports }}
     - ${{ inputs.log }}
-    - ${{ inputs.numbers-to-expressions }}
-    - ${{ inputs.options-preset }}
-    - ${{ inputs.reserved-names }}
-    - ${{ inputs.reserved-strings }}
-    - ${{ inputs.rename-globals }}
-    - ${{ inputs.rename-properties }}
-    - ${{ inputs.rename-properties-mode }}
+    - ${{ inputs.numbers_to_expressions }}
+    - ${{ inputs.options_preset }}
+    - ${{ inputs.reserved_names }}
+    - ${{ inputs.reserved_strings }}
+    - ${{ inputs.rename_globals }}
+    - ${{ inputs.rename_properties }}
+    - ${{ inputs.rename_properties_mode }}
     - ${{ inputs.seed }}
-    - ${{ inputs.self-defending }}
+    - ${{ inputs.self_defending }}
     - ${{ inputs.simplify }}
-    - ${{ inputs.source-map }}
-    - ${{ inputs.source-map-base-url }}
-    - ${{ inputs.source-map-file-name }}
-    - ${{ inputs.source-map-mode }}
-    - ${{ inputs.source-map-sources-mode }}
-    - ${{ inputs.split-strings }}
-    - ${{ inputs.split-strings-chunk-length }}
-    - ${{ inputs.string-array }}
-    - ${{ inputs.string-array-calls-transform }}
-    - ${{ inputs.string-array-calls-transform-threshold }}
-    - ${{ inputs.string-array-encoding }}
-    - ${{ inputs.string-array-indexes-type }}
-    - ${{ inputs.string-array-index-shift }}
-    - ${{ inputs.sring-array-rotate }}
-    - ${{ inputs.string-array-shuffle }}
-    - ${{ inputs.string-array-wrappers-count }}
-    - ${{ inputs.string-array-wrappers-chained-calls }}
-    - ${{ inputs.string-array-wrappers-parameters-max-count }}
-    - ${{ inputs.string-array-wrappers-type }}
-    - ${{ inputs.string-array-threshold }}
+    - ${{ inputs.source_map }}
+    - ${{ inputs.source_map_base_url }}
+    - ${{ inputs.source_map_file_name }}
+    - ${{ inputs.source_map_mode }}
+    - ${{ inputs.source_map_sources_mode }}
+    - ${{ inputs.split_strings }}
+    - ${{ inputs.split_strings_chunk_length }}
+    - ${{ inputs.string_array }}
+    - ${{ inputs.string_array_calls_transform }}
+    - ${{ inputs.string_array_calls_transform_threshold }}
+    - ${{ inputs.string_array_encoding }}
+    - ${{ inputs.string_array_indexes_type }}
+    - ${{ inputs.string_array_index_shift }}
+    - ${{ inputs.sring_array_rotate }}
+    - ${{ inputs.string_array_shuffle }}
+    - ${{ inputs.string_array_wrappers_count }}
+    - ${{ inputs.string_array_wrappers_chained_calls }}
+    - ${{ inputs.string_array_wrappers_parameters_max_count }}
+    - ${{ inputs.string_array_wrappers_type }}
+    - ${{ inputs.string_array_threshold }}
     - ${{ inputs.target }}
-    - ${{ inputs.transform-object-keys }}
-    - ${{ inputs.unicode-escape-sequence }}
+    - ${{ inputs.transform_object_keys }}
+    - ${{ inputs.unicode_escape_sequence }}
 
 branding:
   icon: 'package'
