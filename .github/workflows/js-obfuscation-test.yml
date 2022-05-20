@@ -32,7 +32,6 @@ jobs:
       - name: Create distribution path
         run: |
          mkdir -p dist
-         ls -lah
 
       - uses: ./
         with:
