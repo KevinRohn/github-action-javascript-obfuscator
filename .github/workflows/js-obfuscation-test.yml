@@ -29,4 +29,11 @@ jobs:
           npm --prefix example install
           node example/index.js
       
-      - uses: KevinRohn/github-action-javascript-obfuscator@${{ steps.git_info.outputs.hash }}
+      - name: Create distribution path
+        run: mkdir -p dist
+
+      - uses: action.yml
+        with:
+          input-path: example
+          output-path: dist
+        
