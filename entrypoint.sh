@@ -6,6 +6,6 @@ if [ -z "$1" ] || [ -z "$2" ]; then
   exit 1
 fi
 
-echo "${INPUT_INPUT-PATH}"
+echo "Path name: ${INPUT_INPUT-PATH}"
 # Test
 javascript-obfuscator $1 --output $2
