@@ -11,12 +11,14 @@ jobs:
         uses: mickem/clean-after-action@v1
 
       - name: Set current branch ref
-        id: ref
-        run: echo "::set-output name=name::${GITHUB_REF##*/}"
+        id: git_info
+        run: |
+          echo "::set-output name=branch::${GITHUB_REF##*/}"
+          echo "::set-output name=hash::$(git rev-parse --short \"$GITHUB_SHA\")"
 
       - uses: actions/checkout@v3
         with:
-          ref: ${{ steps.ref.outputs.name }}
+          ref: ${{ steps.git_info.outputs.branch }}
 
       - uses: actions/setup-node@v3
         with:
@@ -27,4 +29,4 @@ jobs:
           npm --prefix example install
           node example/index.js
       
-      - uses: KevinRohn/github-action-javascript-obfuscator@${{ steps.ref.outputs.name }}
+      - uses: KevinRohn/github-action-javascript-obfuscator@${{ steps.git_info.outputs.hash }}
