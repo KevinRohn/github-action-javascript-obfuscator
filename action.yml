@@ -8,13 +8,216 @@ inputs:
   output-path: 
     description: 'Output path for single file or directory'
     required: true
+  compact:
+    description: '<boolean> Disable one line output code compacting'
+    required: false
+  control-flow-flattening:
+    description: '<boolean> Enables control flow flattening'
+    required: false
+  control-flow-flattening-threshold:
+    required: false
+    description: '<number> The probability that the control flow flattening transformation will be applied to the node'
+  dead-code-injection:
+    required: false
+    description: '<boolean> Enables dead code injection'
+  dead-code-injection-threshold:
+    required: false
+    description: '<number> The probability that the dead code injection transformation will be applied to the node'
+  debug-protection:
+    required: false
+    description: '<boolean> Disable browser Debug panel (can cause DevTools enabled browser freeze)'
+  debug-protection-interval:
+    required: false
+    description: '<number> Sets interval in milliseconds for debug protection so it is working even after page was loaded (can cause DevTools enabled browser freeze)'
+  disable-console-output:
+    required: false
+    description: '<boolean> Allow console.log, console.info, console.error and console.warn messages output into browser console'
+  domain-lock:
+    required: false
+    description: '<list> (comma separated, without whitespaces) Allows to run the obfuscated source code only on specific domains and/or sub-domains (comma separated)'
+  domain-lock-redirect-url:
+    required: false
+    description: '<string> Allows the browser to be redirected to a passed URL if the source code is not run on the domains specified by --domain-lock'
+  exclude:
+    required: false
+    description: '<list> (comma separated, without whitespaces) A filename or glob which indicates files to exclude from obfuscation'
+  force-transform-strings:
+    required: false
+    description: '<list> (comma separated, without whitespaces) Enables force transformation of string literals, which being matched by passed RegExp patterns (comma separated)'
+  identifier-names-cache-path:
+    required: false
+    description: '<string> Sets path for identifier names cache'
+  identifier-names-generator:
+    required: false
+    description: '<string> Sets identifier names generator. Values: dictionary, hexadecimal, mangled, mangled-shuffled. Default: hexadecimal'
+  identifiers-dictionary:
+    required: false
+    description: '<list> (comma separated, without whitespaces) Sets prefix for all global identifiers'
+  identifiers-prefix:
+    required: false
+    description: '<string> Identifiers dictionary (comma separated) for `--identifier-names-generator dictionary` option'
+  ignore-imports:
+    required: false
+    description: '<boolean> Prevents obfuscation of `require` and `dynamic` imports'
+  log:
+    required: false
+    description: '<boolean> Enables logging of the information to the console'
+  numbers-to-expressions:
+    required: false
+    description: '<boolean> Enables numbers conversion to expressions'
+  options-preset:
+    required: false
+    description: '<string> Allows to set options preset. Values: default, low-obfuscation, medium-obfuscation, high-obfuscation. Default: default'
+  rename-globals:
+    required: false
+    description: '<boolean> Allows to enable obfuscation of global variable and function names with declaration'
+  rename-properties:
+    required: false
+    description: '<boolean> UNSAFE: Enables renaming of property names. This probably MAY break your code'
+  rename-properties-mode:
+    required: false
+    description: '<boolean> Specify `--rename-properties` option mode. Values: safe, unsafe. Default: safe'
+  reserved-names:
+    required: false
+    description: '<list> (comma separated, without whitespaces) Disables obfuscation and generation of identifiers, which being matched by passed RegExp patterns (comma separated)'
+  reserved-strings:
+    required: false
+    description: '<list> (comma separated, without whitespaces) Disables transformation of string literals, which being matched by passed RegExp patterns (comma separated)'
+  seed:
+    required: false
+    description: '<string|number> Sets seed for random generator. This is useful for creating repeatable results.'
+  self-defending:
+    required: false
+    description: '<boolean> Disables self-defending for obfuscated code'
+  simplify:
+    required: false
+    description: '<boolean> Enables additional code obfuscation through simplification'
+  source-map:
+    required: false
+    description: '<boolean> Enables source map generation'
+  source-map-base-url:
+    required: false
+    description: '<string> Sets base url to the source map import url when `--source-map-mode=separate`'
+  source-map-file-name:
+    required: false
+    description: 'S<string> ets file name for output source map when `--source-map-mode=separate`'
+  source-map-mode:
+    required: false
+    description: '<string> Specify source map output mode. Values: inline, separate. Default: separate'
+  source-map-sources-mode:
+    required: false
+    description: '<string> Specify source map sources mode. Values: sources, sources-content. Default: sources-content'
+  split-strings: 
+    required: false
+    description: '<boolean> Splits literal strings into chunks with length of `splitStringsChunkLength` option value'
+  split-strings-chunk-length:
+    required: false
+    description: '<number> Sets chunk length of `splitStrings` option'
+  string-array:
+    required: false
+    description: '<boolean> Enables gathering of all literal strings into an array and replacing every literal string with an array call'
+  string-array-calls-transform:
+    required: false
+    description: '<boolean> Enables the transformation of calls to the string array'
+  string-array-calls-transform-threshold:
+    required: false
+    description: '<number> The probability that that calls to the string array will be transformed'
+  string-array-encoding:
+    required: false
+    description: 'list> (comma separated, without whitespaces) Encodes each string in strings array using base64 or rc4 (this option can slow down your code speed). Values: none, base64, rc4. Default: none'
+  string-array-indexes-type:
+    required: false
+    description: '<list> (comma separated, without whitespaces) Encodes each string in strings array using base64 or rc4 (this option can slow down your code speed). Values: hexadecimal-number, hexadecimal-numeric-string. Default: hexadecimal-number'
+  string-array-index-shift:
+    required: false
+    description: '<boolean> Enables additional index shift for all string array calls'
+  string-array-rotate:
+    required: false
+    description: '<boolean> Enable rotation of string array values during obfuscation'
+  string-array-shuffle:
+    required: false
+    description: '<boolean> Randomly shuffles string array items'
+  string-array-wrappers-count:
+    required: false
+    description: '<number> Sets the count of wrappers for the string array inside each root or function scope'
+  string-array-wrappers-chained-calls: 
+    required: false
+    description: '<boolean> Enables the chained calls between string array wrappers'
+  string-array-wrappers-parameters-max-count:
+    required: false
+    description: '<number> Allows to control the maximum number of string array wrappers parameters'
+  string-array-wrappers-type:
+    required: false
+    description: '<string> Allows to select a type of the wrappers that are appending by the `--string-array-wrappers-count` option. Values: variable, function. Default: variable'
+  string-array-threshold:
+    required: false
+    description: '<number> The probability that the literal string will be inserted into stringArray (Default: 0.8, Min: 0, Max: 1)'
+  target:
+    required: false
+    description: '<string> Allows to set target environment for obfuscated code. Values: browser, browser-no-eval, node. Default: browser'
+  transform-object-keys:
+    required: false
+    description: '<boolean> Enables transformation of object keys'
+  unicode-escape-sequence:
+    required: false
+    description: '<boolean> Allows to enable/disable string conversion to unicode escape sequence'
 
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
     - ${{ inputs.input-path }}
-    - ${{ inputs.output-path}}
+    - ${{ inputs.output-path }}
+    - ${{ inputs.control-flow-flattening }}
+    - ${{ inputs.control-flow-flattening-threshold }}
+    - ${{ inputs.dead-code-injection }}
+    - ${{ inputs.dead-code-injection-threshold }}
+    - ${{ inputs.debug-protection }}
+    - ${{ inputs.debug-protection-interval }}
+    - ${{ inputs.disable-console-output }}
+    - ${{ inputs.domain-lock }}
+    - ${{ inputs.domain-lock-redirect-url }}
+    - ${{ inputs.exclude }}
+    - ${{ inputs.force-transform-strings }}
+    - ${{ inputs.identifier-names-cache-path }}
+    - ${{ inputs.identifier-names-generator }}
+    - ${{ inputs.identifiers-prefix }}
+    - ${{ inputs.identifiers-dictionary }}
+    - ${{ inputs.ignore-imports }}
+    - ${{ inputs.log }}
+    - ${{ inputs.numbers-to-expressions }}
+    - ${{ inputs.options-preset }}
+    - ${{ inputs.reserved-names }}
+    - ${{ inputs.reserved-strings }}
+    - ${{ inputs.rename-globals }}
+    - ${{ inputs.rename-properties }}
+    - ${{ inputs.rename-properties-mode }}
+    - ${{ inputs.seed }}
+    - ${{ inputs.self-defending }}
+    - ${{ inputs.simplify }}
+    - ${{ inputs.source-map }}
+    - ${{ inputs.source-map-base-url }}
+    - ${{ inputs.source-map-file-name }}
+    - ${{ inputs.source-map-mode }}
+    - ${{ inputs.source-map-sources-mode }}
+    - ${{ inputs.split-strings }}
+    - ${{ inputs.split-strings-chunk-length }}
+    - ${{ inputs.string-array }}
+    - ${{ inputs.string-array-calls-transform }}
+    - ${{ inputs.string-array-calls-transform-threshold }}
+    - ${{ inputs.string-array-encoding }}
+    - ${{ inputs.string-array-indexes-type }}
+    - ${{ inputs.string-array-index-shift }}
+    - ${{ inputs.sring-array-rotate }}
+    - ${{ inputs.string-array-shuffle }}
+    - ${{ inputs.string-array-wrappers-count }}
+    - ${{ inputs.string-array-wrappers-chained-calls }}
+    - ${{ inputs.string-array-wrappers-parameters-max-count }}
+    - ${{ inputs.string-array-wrappers-type }}
+    - ${{ inputs.string-array-threshold }}
+    - ${{ inputs.target }}
+    - ${{ inputs.transform-object-keys }}
+    - ${{ inputs.unicode-escape-sequence }}
 
 branding:
   icon: 'package'
