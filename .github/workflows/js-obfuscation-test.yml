@@ -32,7 +32,7 @@ jobs:
       - name: Create distribution path
         run: mkdir -p dist
 
-      - uses: action.yml
+      - uses: ./action.yml
         with:
           input-path: example
           output-path: dist
