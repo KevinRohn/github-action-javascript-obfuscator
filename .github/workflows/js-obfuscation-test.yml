@@ -1,0 +1,27 @@
+name: "Obfuscate js test application"
+on: 
+  push:
+
+
+jobs:
+  test-js-obfuscation:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Cleanup workspace path
+        uses: mickem/clean-after-action@v1
+
+      - uses: actions/checkout@v3
+        with:
+          ref: ${GITHUB_REF##*/}
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 14
+
+      - name: Execute without obfuscation
+        run: |
+          npm --prefix example install
+          node example/index.js
+          
+      - uses: KevinRohn/github-action-javascript-obfuscator${GITHUB_REF##*/}

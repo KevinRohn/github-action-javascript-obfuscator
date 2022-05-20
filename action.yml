@@ -1,0 +1,14 @@
+name: 'Github Action javascript-obfuscator'
+author: Kevin Rohn
+description: 'Obfuscate javascript by using the javascript-obfuscator'
+inputs:
+  input: 
+    description: 'Single file or directory'
+    required: true
+  output: 
+    description: 'Output path for single file or directory'
+    required: true
+
+branding:
+  icon: 'package'
+  color: 'green'
