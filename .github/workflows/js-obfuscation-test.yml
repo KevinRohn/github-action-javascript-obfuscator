@@ -30,7 +30,9 @@ jobs:
           node example/index.js
       
       - name: Create distribution path
-        run: mkdir -p dist
+        run: |
+         mkdir -p dist
+         ls -lah
 
       - uses: ./action.yml
         with:
