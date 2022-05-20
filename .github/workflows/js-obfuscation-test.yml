@@ -12,7 +12,7 @@ jobs:
 
       - name: Set current branch ref
         id: ref
-        run: echo "::set-output name=name::$${GITHUB_REF##*/}"
+        run: echo "::set-output name=name::${GITHUB_REF##*/}"
 
       - uses: actions/checkout@v3
         with:
