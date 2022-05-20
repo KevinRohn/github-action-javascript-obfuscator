@@ -2,7 +2,7 @@ name: 'Github Action javascript-obfuscator'
 author: Kevin Rohn
 description: 'Obfuscate javascript by using the javascript-obfuscator'
 inputs:
-  input-path: 
+  input_path: 
     description: 'Single file or directory'
     required: true
   output-path: 
@@ -166,7 +166,7 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.input-path }}
+    - ${{ inputs.input_path }}
     - ${{ inputs.output-path }}
     - ${{ inputs.control-flow-flattening }}
     - ${{ inputs.control-flow-flattening-threshold }}
