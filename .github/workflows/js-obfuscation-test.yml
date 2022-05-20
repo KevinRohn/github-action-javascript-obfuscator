@@ -27,4 +27,4 @@ jobs:
           npm --prefix example install
           node example/index.js
       
-      #- uses: KevinRohn/github-action-javascript-obfuscator@${{ steps.ref.outputs.name }}
+      - uses: KevinRohn/github-action-javascript-obfuscator@${{ steps.ref.outputs.name }}
