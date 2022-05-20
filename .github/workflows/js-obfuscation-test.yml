@@ -35,6 +35,6 @@ jobs:
 
       - uses: ./
         with:
-          input-path: example
+          input_path: example
           output-path: dist
         
