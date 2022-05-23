@@ -37,4 +37,5 @@ jobs:
         with:
           input_path: example
           output_path: dist
+          target: node
         
