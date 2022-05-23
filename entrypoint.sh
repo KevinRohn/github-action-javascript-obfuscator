@@ -179,6 +179,7 @@ check_numbers_to_expressions() {
     echo "--numbers-to-expressions $(echo $INPUT_NUMBERS_TO_EXPRESSIONS)"
   fi
 }
+numbers_to_expressions=$(check_numbers_to_expressions)
 
 check_options_preset() {
   if [[ -z "$INPUT_OPTIONS_PRESET" ]]; then
@@ -405,6 +406,15 @@ check_string_array_wrappers_count() {
 }
 string_array_wrappers_count=$(check_string_array_wrappers_count)
 
+check_string_array_wrappers_chained_calls() {
+  if [[ -z "$INPUT_STRING_ARRAY_WRAPPERS_CHAINED_CALLS" ]]; then
+    echo ""
+  else
+    echo "--string-array-wrappers-chained-calls $(echo $INPUT_STRING_ARRAY_WRAPPERS_CHAINED_CALLS)"
+  fi
+}
+string_array_wrappers_chained_calls=$(check_string_array_wrappers_chained_calls)
+
 check_string_array_wrappers_parameters_max_count() {
   if [[ -z "$INPUT_STRING_ARRAY_WRAPPERS_PARAMETERS_MAX_COUNT" ]]; then
     echo ""
@@ -471,4 +481,44 @@ javascript-obfuscator $INPUT_INPUT_PATH \
                       $disable_console_output \
                       $domain_lock \
                       $domain_lock_redirect_url \
-                      $target
+                      $exclude \
+                      $force_transform_strings \
+                      $identifier_names_cache_path \
+                      $identifier_names_generator \
+                      $identifiers_dictionary \
+                      $identifiers_prefix \
+                      $ignore_imports \
+                      $log \
+                      $numbers_to_expressions \
+                      $options_preset \
+                      $rename_globals \
+                      $rename_properties \
+                      $rename_properties_mode \
+                      $reserved_names \
+                      $reserved_strings \
+                      $seed \
+                      $self_defending \
+                      $simplify \
+                      $source_map \
+                      $source_map_base_url \
+                      $source_map_file_name \
+                      $source_map_mode \
+                      $source_map_sources_mode \
+                      $split_strings \
+                      $split_strings_chunk_length \
+                      $string_array \
+                      $string_array_calls_transform \
+                      $string_array_calls_transform_threshold \
+                      $string_array_encoding \
+                      $string_array_indexes_type \
+                      $string_array_index_shift \
+                      $string_array_rotate \
+                      $string_array_shuffle \
+                      $string_array_wrappers_count \
+                      $string_array_wrappers_chained_calls \
+                      $string_array_wrappers_parameters_max_count \
+                      $string_array_wrappers_type \
+                      $string_array_threshold \
+                      $target \
+                      $transform_object_keys \
+                      $unicode_escape_sequence

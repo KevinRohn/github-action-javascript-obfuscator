@@ -37,5 +37,21 @@ jobs:
         with:
           input_path: example
           output_path: dist
+          compact: true
+          control_flow_flattening: true
+          control_flow_flattening_threshold: 0.75
+          dead_code_injection: true
+          dead_code_injection_threshold: 0.4
+          debug_protection: false
+          debug_protection_interval: 0
+          disable_console_output: true
+          rename_globals: false
+          string_array_rotate: true
+          self_defending: true
+          string_array: true
+          string_array_encoding: 'base64'
+          string_array_threshold: 0.8
+          unicode_escape_sequence: false
           target: node
+
         

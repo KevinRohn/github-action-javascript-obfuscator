@@ -64,6 +64,7 @@ inputs:
       
       Type: number
       Default: 0
+
   disable_console_output:
     required: false
     description: > 
@@ -79,6 +80,7 @@ inputs:
 
       Type: string[] (comma separated, without whitespaces)
       Default: []
+
   domain_lock_redirect_url:
     required: false
     description: > 
@@ -118,6 +120,7 @@ inputs:
 
       Type: string
       Default: hexadecimal
+
   identifiers_dictionary:
     required: false
     description: > 
@@ -125,6 +128,7 @@ inputs:
 
       Type: string[] (comma separated, without whitespaces)
       Default: []
+
   identifiers_prefix:
     required: false
     description: > 
@@ -211,82 +215,205 @@ inputs:
       
       Type: string|number
       Default: false
-      
+
   self_defending:
     required: false
-    description: '<boolean> Disables self-defending for obfuscated code'
+    description: > 
+      Disables self-defending for obfuscated code
+
+      Type: boolean
+      Default: false
+
   simplify:
     required: false
-    description: '<boolean> Enables additional code obfuscation through simplification'
+    description: > 
+      Enables additional code obfuscation through simplification
+
+      Type: boolean
+      Default: true
+
   source_map:
     required: false
-    description: '<boolean> Enables source map generation'
+    description: > 
+      Enables source map generation
+
+      Type: boolean
+      Default: false
+
   source_map_base_url:
     required: false
-    description: '<string> Sets base url to the source map import url when `--source-map-mode=separate`'
+    description: >
+      Sets base url to the source map import url when `--source-map-mode=separate`
+      
+      Type: string
+      Default: ''
+
   source_map_file_name:
     required: false
-    description: 'S<string> ets file name for output source map when `--source-map-mode=separate`'
+    description: > 
+      Sets file name for output source map when `--source-map-mode=separate`
+
+      Type: string
+      Default: ''
+
   source_map_mode:
     required: false
-    description: '<string> Specify source map output mode. Values: inline, separate. Default: separate'
+    description: > 
+      Specify source map output mode. Values: inline, separate. Default: separate
+
+      Type: string
+      Default: 'separate'
+      
   source_map_sources_mode:
     required: false
-    description: '<string> Specify source map sources mode. Values: sources, sources-content. Default: sources-content'
+    description: > 
+      Specify source map sources mode. Values: sources, sources-content. Default: sources-content
+      
+      Type: string
+      Default: sources-content
+
   split_strings: 
     required: false
-    description: '<boolean> Splits literal strings into chunks with length of `splitStringsChunkLength` option value'
+    description: > 
+      Splits literal strings into chunks with length of `splitStringsChunkLength` option value
+      
+      Type: boolean
+      Default: false
+
   split_strings_chunk_length:
     required: false
-    description: '<number> Sets chunk length of `splitStrings` option'
+    description: > 
+      Sets chunk length of `splitStrings` option
+      
+      Type: number
+      Default: 10
+
   string_array:
     required: false
-    description: '<boolean> Enables gathering of all literal strings into an array and replacing every literal string with an array call'
+    description: > 
+      Enables gathering of all literal strings into an array and replacing every literal string with an array call
+      
+      Type: boolean
+      Default: true
+
   string_array_calls_transform:
     required: false
-    description: '<boolean> Enables the transformation of calls to the string array'
+    description: > 
+      Enables the transformation of calls to the string array
+      
+      Type: boolean
+      Default: false
+
   string_array_calls_transform_threshold:
     required: false
-    description: '<number> The probability that that calls to the string array will be transformed'
+    description: > 
+      The probability that that calls to the string array will be transformed
+
+      Type: number
+      Default: 0.5
+
   string_array_encoding:
     required: false
-    description: 'list> (comma separated, without whitespaces) Encodes each string in strings array using base64 or rc4 (this option can slow down your code speed). Values: none, base64, rc4. Default: none'
+    description: > 
+      Encodes each string in strings array using base64 or rc4 (this option can slow down your code speed). Values: none, base64, rc4. Default: none
+
+      Type: string[] (comma separated, without whitespaces)
+      Default: []
+
   string_array_indexes_type:
     required: false
-    description: '<list> (comma separated, without whitespaces) Encodes each string in strings array using base64 or rc4 (this option can slow down your code speed). Values: hexadecimal-number, hexadecimal-numeric-string. Default: hexadecimal-number'
+    description: > 
+      Encodes each string in strings array using base64 or rc4 (this option can slow down your code speed). Values: hexadecimal-number, hexadecimal-numeric-string. Default: hexadecimal-number
+
+      Type: string[] (comma separated, without whitespaces)
+      Default: [] 
+
   string_array_index_shift:
     required: false
-    description: '<boolean> Enables additional index shift for all string array calls'
+    description: > 
+      Enables additional index shift for all string array calls
+
+      Type: boolean
+      Default: true
+
   string_array_rotate:
     required: false
-    description: '<boolean> Enable rotation of string array values during obfuscation'
+    description: > 
+      Enable rotation of string array values during obfuscation
+
+      Type: boolean
+      Default: true
+
   string_array_shuffle:
     required: false
-    description: '<boolean> Randomly shuffles string array items'
+    description: > 
+      Randomly shuffles string array items
+
+      Type: boolean
+      Default: true
+
   string_array_wrappers_count:
     required: false
-    description: '<number> Sets the count of wrappers for the string array inside each root or function scope'
+    description: > 
+      Sets the count of wrappers for the string array inside each root or function scope
+
+      Type: number
+      Default: 1
+
   string_array_wrappers_chained_calls: 
     required: false
-    description: '<boolean> Enables the chained calls between string array wrappers'
+    description: > 
+      Enables the chained calls between string array wrappers
+
+      Type: boolean
+      Default: true
+
   string_array_wrappers_parameters_max_count:
     required: false
-    description: '<number> Allows to control the maximum number of string array wrappers parameters'
+    description: > 
+      Allows to control the maximum number of string array wrappers parameters
+
+      Type: number
+      Default: 2 
   string_array_wrappers_type:
     required: false
-    description: '<string> Allows to select a type of the wrappers that are appending by the `--string-array-wrappers-count` option. Values: variable, function. Default: variable'
+    description: > 
+      Allows to select a type of the wrappers that are appending by the `--string-array-wrappers-count` option. Values: variable, function. Default: variable
+
+      Type: string
+      Default: 'variable'
+
   string_array_threshold:
     required: false
-    description: '<number> The probability that the literal string will be inserted into stringArray (Default: 0.8, Min: 0, Max: 1)'
+    description: > 
+      The probability that the literal string will be inserted into stringArray (Default: 0.8, Min: 0, Max: 1)
+
+      Type: number
+      Default: 0.8
+
   target:
     required: false
-    description: '<string> Allows to set target environment for obfuscated code. Values: browser, browser-no-eval, node. Default: browser'
+    description: > 
+      Allows to set target environment for obfuscated code. Values: browser, browser-no-eval, node. Default: browser
+
+      Type: string
+      Default: browser
+
   transform_object_keys:
     required: false
-    description: '<boolean> Enables transformation of object keys'
+    description: > 
+      Enables transformation of object keys
+
+      Type: boolean
+      Default: false   
+
   unicode_escape_sequence:
     required: false
-    description: '<boolean> Allows to enable/disable string conversion to unicode escape sequence'
+    description: > 
+      Allows to enable/disable string conversion to unicode escape sequence
+
+      Type: boolean
+      Default: false
 
 runs:
   using: 'docker'
@@ -299,7 +426,7 @@ runs:
     - ${{ inputs.dead_code_injection }}
     - ${{ inputs.dead_code_injection_threshold }}
     - ${{ inputs.debug_protection }}
-    - ${{ inputs.debug_protection-interval }}
+    - ${{ inputs.debug_protection_interval }}
     - ${{ inputs.disable_console_output }}
     - ${{ inputs.domain_lock }}
     - ${{ inputs.domain_lock_redirect_url }}
