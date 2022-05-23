@@ -28,15 +28,39 @@ jobs:
         run: |
           npm --prefix example install
           node example/index.js
-      
+
       - name: Create distribution path
         run: |
-         mkdir -p dist
+         mkdir -p dist_low_obfuscation
 
       - uses: ./
         with:
           input_path: example
-          output_path: dist
+          output_path: dist_low_obfuscation
+          compact: true
+          control_flow_flattening: false
+          dead_code_injection: false
+          debug_protection: false
+          debug_protection_interval: 0
+          log: false
+          disable_console_output: true
+          rename_globals: false
+          string_array_rotate: true
+          self_defending: true
+          string_array: true
+          string_array_encoding: 'none'
+          string_array_threshold: 0.75
+          unicode_escape_sequence: false
+          target: node
+
+      - name: Create distribution path
+        run: |
+         mkdir -p dist_medium_obfuscation
+
+      - uses: ./
+        with:
+          input_path: example
+          output_path: dist_medium_obfuscation
           compact: true
           control_flow_flattening: true
           control_flow_flattening_threshold: 0.75
@@ -44,14 +68,61 @@ jobs:
           dead_code_injection_threshold: 0.4
           debug_protection: false
           debug_protection_interval: 0
+          log: false
           disable_console_output: true
           rename_globals: false
           string_array_rotate: true
           self_defending: true
           string_array: true
           string_array_encoding: 'base64'
-          string_array_threshold: 0.8
+          string_array_threshold: 0.75
           unicode_escape_sequence: false
           target: node
 
-        
+      - name: Create distribution path
+        run: |
+         mkdir -p dist_high_obfuscation
+
+      - uses: ./
+        with:
+          input_path: example
+          output_path: dist_high_obfuscation
+          compact: true
+          control_flow_flattening: true
+          control_flow_flattening_threshold: 1
+          dead_code_injection: true
+          dead_code_injection_threshold: 1
+          debug_protection: true
+          debug_protection_interval: 500
+          disable_console_output: true
+          rename_globals: false
+          string_array_rotate: true
+          self_defending: true
+          string_array: true
+          string_array_encoding: 'rc4'
+          string_array_threshold: 1
+          unicode_escape_sequence: false
+          target: node
+
+      - run: mkdir -p upload_files
+
+      - uses: vimtor/action-zip@v1
+        with:
+          files: dist_low_obfuscation/
+          dest: upload_files/dist_low_obfuscation.zip
+
+      - uses: vimtor/action-zip@v1
+        with:
+          files: dist_medium_obfuscation/
+          dest: upload_files/dist_medium_obfuscation.zip
+
+      - uses: vimtor/action-zip@v1
+        with:
+          files: dist_high_obfuscation/
+          dest: upload_files/dist_high_obfuscation.zip
+
+      - name: upload files
+        uses: actions/upload-artifact@v2
+        with:
+          name: obufscated_example_files
+          path: upload_files/
