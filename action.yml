@@ -2,90 +2,216 @@ name: 'Github Action javascript-obfuscator'
 author: Kevin Rohn
 description: 'Obfuscate javascript by using the javascript-obfuscator'
 inputs:
+
   input_path: 
     description: 'Single file or directory'
     required: true
+
   output_path: 
     description: 'Output path for single file or directory'
     required: true
+  
   compact:
-    description: '<boolean> Disable one line output code compacting'
+    description: > 
+      Disable one line output code compacting.
+
+      Type: boolean
+      Default: true
     required: false
+  
   control_flow_flattening:
-    description: '<boolean> Enables control flow flattening'
+    description: > 
+      Enables control flow flattening.
+      
+      Type: boolean
+      Default: false
     required: false
+
   control_flow_flattening_threshold:
+    description: >
+      The probability that the control flow flattening transformation will be applied to the node
+
+      Type: boolean
+      Default: false
     required: false
-    description: '<number> The probability that the control flow flattening transformation will be applied to the node'
+
   dead_code_injection:
     required: false
-    description: '<boolean> Enables dead code injection'
+    description: >
+      Enables dead code injection
+
+      Type: boolean
+      Default: false
   dead_code_injection_threshold:
     required: false
-    description: '<number> The probability that the dead code injection transformation will be applied to the node'
+    description: >
+      The probability that the dead code injection transformation will be applied to the node
+      
+      Type: boolean
+      Default: false
   debug_protection:
     required: false
-    description: '<boolean> Disable browser Debug panel (can cause DevTools enabled browser freeze)'
+    description: > 
+      Disable browser Debug panel (can cause DevTools enabled browser freeze)
+
+      Type: boolean
+      Default: false
+
   debug_protection_interval:
     required: false
-    description: '<number> Sets interval in milliseconds for debug protection so it is working even after page was loaded (can cause DevTools enabled browser freeze)'
+    description: > 
+      Sets interval in milliseconds for debug protection so it is working even after page was loaded (can cause DevTools enabled browser freeze)
+      
+      Type: number
+      Default: 0
   disable_console_output:
     required: false
-    description: '<boolean> Allow console.log, console.info, console.error and console.warn messages output into browser console'
+    description: > 
+      Allow console.log, console.info, console.error and console.warn messages output into browser console
+      
+      Type: boolean
+      Default: false
+
   domain_lock:
     required: false
-    description: '<list> (comma separated, without whitespaces) Allows to run the obfuscated source code only on specific domains and/or sub-domains (comma separated)'
+    description: >
+      Allows to run the obfuscated source code only on specific domains and/or sub-domains (comma separated)
+
+      Type: string[] (comma separated, without whitespaces)
+      Default: []
   domain_lock_redirect_url:
     required: false
-    description: '<string> Allows the browser to be redirected to a passed URL if the source code is not run on the domains specified by --domain-lock'
+    description: > 
+      Allows the browser to be redirected to a passed URL if the source code is not run on the domains specified by --domain-lock
+
+      Type: string
+      Default: about:blank
+
   exclude:
     required: false
-    description: '<list> (comma separated, without whitespaces) A filename or glob which indicates files to exclude from obfuscation'
+    description: > 
+      A filename or glob which indicates files to exclude from obfuscation
+
+      Type: string[] (comma separated, without whitespaces)
+      Default: []
+
   force_transform_strings:
     required: false
-    description: '<list> (comma separated, without whitespaces) Enables force transformation of string literals, which being matched by passed RegExp patterns (comma separated)'
+    description: > 
+      (comma separated, without whitespaces) Enables force transformation of string literals, which being matched by passed RegExp patterns (comma separated)
+      
+      Type: string[] (comma separated, without whitespaces)
+      Default: []
+
   identifier_names_cache_path:
     required: false
-    description: '<string> Sets path for identifier names cache'
+    description: > 
+      Sets path for identifier names cache
+      
+      Type: Object | null
+      Default: null
+
   identifier_names_generator:
     required: false
-    description: '<string> Sets identifier names generator. Values: dictionary, hexadecimal, mangled, mangled-shuffled. Default: hexadecimal'
+    description: > 
+      Sets identifier names generator. Values: dictionary, hexadecimal, mangled, mangled-shuffled.
+
+      Type: string
+      Default: hexadecimal
   identifiers_dictionary:
     required: false
-    description: '<list> (comma separated, without whitespaces) Sets prefix for all global identifiers'
+    description: > 
+      Sets prefix for all global identifiers
+
+      Type: string[] (comma separated, without whitespaces)
+      Default: []
   identifiers_prefix:
     required: false
-    description: '<string> Identifiers dictionary (comma separated) for `--identifier-names-generator dictionary` option'
+    description: > 
+      Identifiers dictionary (comma separated) for `--identifier-names-generator dictionary` option
+
+      Type: string
+      Default: ''
+
   ignore_imports:
     required: false
-    description: '<boolean> Prevents obfuscation of `require` and `dynamic` imports'
+    description: >
+      prevents obfuscation of `require` and `dynamic` imports'
+      
+      Type: boolean
+      Default: false
+
   log:
     required: false
-    description: '<boolean> Enables logging of the information to the console'
+    description: > 
+      Enables logging of the information to the console
+
+      Type: boolean
+      Default: false
+
   numbers_to_expressions:
     required: false
-    description: '<boolean> Enables numbers conversion to expressions'
+    description: > 
+      Enables numbers conversion to expressions
+      
+      Type: boolean
+      Default: false
+
   options_preset:
     required: false
-    description: '<string> Allows to set options preset. Values: default, low-obfuscation, medium-obfuscation, high-obfuscation. Default: default'
+    description: > 
+      Allows to set options preset. Values: default, low-obfuscation, medium-obfuscation, high-obfuscation. Default: default
+
+      Type: string
+      Default: default
+
   rename_globals:
     required: false
-    description: '<boolean> Allows to enable obfuscation of global variable and function names with declaration'
+    description: > 
+      Allows to enable obfuscation of global variable and function names with declaration
+      
+      Type: boolean
+      Default: false
+
   rename_properties:
     required: false
-    description: '<boolean> UNSAFE: Enables renaming of property names. This probably MAY break your code'
+    description: > 
+      UNSAFE: Enables renaming of property names. This probably MAY break your code
+
+      Type: boolean
+      Default: false
+
   rename_properties_mode:
     required: false
-    description: '<boolean> Specify `--rename-properties` option mode. Values: safe, unsafe. Default: safe'
+    description: > 
+      Specify `--rename-properties` option mode. Values: safe, unsafe. Default: safe
+
+      Type: string
+      Default: safe
+
   reserved_names:
     required: false
-    description: '<list> (comma separated, without whitespaces) Disables obfuscation and generation of identifiers, which being matched by passed RegExp patterns (comma separated)'
+    description: > 
+      Disables obfuscation and generation of identifiers, which being matched by passed RegExp patterns (comma separated)
+
+      Type: string[] (comma separated, without whitespaces)
+      Default: []
+
   reserved_strings:
     required: false
-    description: '<list> (comma separated, without whitespaces) Disables transformation of string literals, which being matched by passed RegExp patterns (comma separated)'
+    description: > 
+      Disables transformation of string literals, which being matched by passed RegExp patterns (comma separated)
+
+      Type: string[] (comma separated, without whitespaces)
+      Default: []
   seed:
     required: false
-    description: '<string|number> Sets seed for random generator. This is useful for creating repeatable results.'
+    description: > 
+      Sets seed for random generator. This is useful for creating repeatable results.
+      
+      Type: string|number
+      Default: false
+      
   self_defending:
     required: false
     description: '<boolean> Disables self-defending for obfuscated code'
