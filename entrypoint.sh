@@ -37,7 +37,7 @@ check_target() {
 }
 target=$(check_target)
 
-javascript-obfuscator $INPUT_INPUT_PATH 
+javascript-obfuscator $INPUT_INPUT_PATH \
                       --output $INPUT_OUTPUT_PATH \
                       $compact_option \
                       $control_flow_flattening \
