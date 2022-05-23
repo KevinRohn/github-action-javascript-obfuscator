@@ -32,8 +32,9 @@ jobs:
       - name: Create distribution path
         run: |
          mkdir -p dist_low_obfuscation
-
-      - uses: ./
+      
+      - name: Low obufscation test
+        uses: ./
         with:
           input_path: example
           output_path: dist_low_obfuscation
@@ -57,7 +58,8 @@ jobs:
         run: |
          mkdir -p dist_medium_obfuscation
 
-      - uses: ./
+      - name: Medium obufscation test
+        uses: ./
         with:
           input_path: example
           output_path: dist_medium_obfuscation
@@ -83,7 +85,8 @@ jobs:
         run: |
          mkdir -p dist_high_obfuscation
 
-      - uses: ./
+      - name: High obufscation test
+        uses: ./
         with:
           input_path: example
           output_path: dist_high_obfuscation
