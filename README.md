@@ -20,8 +20,8 @@ The Github action uses the [javascript-obfuscator](https://github.com/javascript
         run: |
          mkdir -p distribution_path
       
-      - name: Low obufscation test
-        uses: ./
+      - name: Low obfuscation test
+        uses: KevinRohn/github-action-javascript-obfuscator@v1
         with:
           input_path: input_path
           output_path: distribution_path

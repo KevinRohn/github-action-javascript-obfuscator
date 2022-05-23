@@ -33,7 +33,7 @@ jobs:
         run: |
          mkdir -p dist_low_obfuscation
       
-      - name: Low obufscation test
+      - name: Low obfuscation test
         uses: ./
         with:
           input_path: example
@@ -58,7 +58,7 @@ jobs:
         run: |
          mkdir -p dist_medium_obfuscation
 
-      - name: Medium obufscation test
+      - name: Medium obfuscation test
         uses: ./
         with:
           input_path: example
@@ -85,7 +85,7 @@ jobs:
         run: |
          mkdir -p dist_high_obfuscation
 
-      - name: High obufscation test
+      - name: High obfuscation test
         uses: ./
         with:
           input_path: example
