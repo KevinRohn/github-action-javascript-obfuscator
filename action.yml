@@ -13,7 +13,7 @@ inputs:
   
   compact:
     description: > 
-      Disable one line output code compacting.
+      Compact code output on one line.
 
       Type: boolean
       Default: true
@@ -29,7 +29,7 @@ inputs:
 
   control_flow_flattening_threshold:
     description: >
-      The probability that the control flow flattening transformation will be applied to the node
+      The probability that the control flow flattening transformation will be applied to the node.
 
       Type: boolean
       Default: false
@@ -45,14 +45,14 @@ inputs:
   dead_code_injection_threshold:
     required: false
     description: >
-      The probability that the dead code injection transformation will be applied to the node
+      The probability that the dead code injection transformation will be applied to the node.
       
       Type: boolean
       Default: false
   debug_protection:
     required: false
     description: > 
-      Disable browser Debug panel (can cause DevTools enabled browser freeze)
+      Disable browser Debug panel (can cause DevTools enabled browser freeze).
 
       Type: boolean
       Default: false
@@ -60,7 +60,7 @@ inputs:
   debug_protection_interval:
     required: false
     description: > 
-      Sets interval in milliseconds for debug protection so it is working even after page was loaded (can cause DevTools enabled browser freeze)
+      Sets interval in milliseconds for debug protection so it is working even after page was loaded (can cause DevTools enabled browser freeze).
       
       Type: number
       Default: 0
@@ -68,7 +68,7 @@ inputs:
   disable_console_output:
     required: false
     description: > 
-      Allow console.log, console.info, console.error and console.warn messages output into browser console
+      Allow console.log, console.info, console.error and console.warn messages output into browser console.
       
       Type: boolean
       Default: false
@@ -76,7 +76,7 @@ inputs:
   domain_lock:
     required: false
     description: >
-      Allows to run the obfuscated source code only on specific domains and/or sub-domains (comma separated)
+      Allows to run the obfuscated source code only on specific domains and/or sub-domains (comma separated).
 
       Type: string[] (comma separated, without whitespaces)
       Default: []
@@ -84,7 +84,7 @@ inputs:
   domain_lock_redirect_url:
     required: false
     description: > 
-      Allows the browser to be redirected to a passed URL if the source code is not run on the domains specified by --domain-lock
+      Allows the browser to be redirected to a passed URL if the source code is not run on the domains specified by `domain_lock`.
 
       Type: string
       Default: about:blank
@@ -92,7 +92,7 @@ inputs:
   exclude:
     required: false
     description: > 
-      A filename or glob which indicates files to exclude from obfuscation
+      A filename or glob which indicates files to exclude from obfuscation.
 
       Type: string[] (comma separated, without whitespaces)
       Default: []
@@ -100,7 +100,7 @@ inputs:
   force_transform_strings:
     required: false
     description: > 
-      (comma separated, without whitespaces) Enables force transformation of string literals, which being matched by passed RegExp patterns (comma separated)
+      Enables force transformation of string literals, which being matched by passed RegExp patterns (comma separated).
       
       Type: string[] (comma separated, without whitespaces)
       Default: []
@@ -108,10 +108,10 @@ inputs:
   identifier_names_cache_path:
     required: false
     description: > 
-      Sets path for identifier names cache
+      The existing .json file that will be used to read and write identifier names cache.
       
-      Type: Object | null
-      Default: null
+      Type: string
+      Default: 
 
   identifier_names_generator:
     required: false
@@ -124,7 +124,7 @@ inputs:
   identifiers_dictionary:
     required: false
     description: > 
-      Sets prefix for all global identifiers
+      Identifiers dictionary (comma separated) for `identifier_names_generator dictionary` option.
 
       Type: string[] (comma separated, without whitespaces)
       Default: []
@@ -132,7 +132,7 @@ inputs:
   identifiers_prefix:
     required: false
     description: > 
-      Identifiers dictionary (comma separated) for `--identifier-names-generator dictionary` option
+      Sets prefix for all global identifiers.
 
       Type: string
       Default: ''
@@ -140,7 +140,7 @@ inputs:
   ignore_imports:
     required: false
     description: >
-      prevents obfuscation of `require` and `dynamic` imports'
+      Prevents obfuscation of `require` and `dynamic` imports'
       
       Type: boolean
       Default: false
@@ -148,7 +148,7 @@ inputs:
   log:
     required: false
     description: > 
-      Enables logging of the information to the console
+      Enables logging of the information to the console.
 
       Type: boolean
       Default: false
@@ -156,7 +156,7 @@ inputs:
   numbers_to_expressions:
     required: false
     description: > 
-      Enables numbers conversion to expressions
+      Enables numbers conversion to expressions.
       
       Type: boolean
       Default: false
@@ -172,7 +172,7 @@ inputs:
   rename_globals:
     required: false
     description: > 
-      Allows to enable obfuscation of global variable and function names with declaration
+      Allows to enable obfuscation of global variable and function names with declaration.
       
       Type: boolean
       Default: false
@@ -180,7 +180,7 @@ inputs:
   rename_properties:
     required: false
     description: > 
-      UNSAFE: Enables renaming of property names. This probably MAY break your code
+      UNSAFE: Enables renaming of property names. This probably MAY break your code.
 
       Type: boolean
       Default: false
@@ -188,7 +188,7 @@ inputs:
   rename_properties_mode:
     required: false
     description: > 
-      Specify `--rename-properties` option mode. Values: safe, unsafe. Default: safe
+      Specify `rename_properties` option mode. Values: safe, unsafe. Default: safe
 
       Type: string
       Default: safe
@@ -196,7 +196,7 @@ inputs:
   reserved_names:
     required: false
     description: > 
-      Disables obfuscation and generation of identifiers, which being matched by passed RegExp patterns (comma separated)
+      Disables obfuscation and generation of identifiers, which being matched by passed RegExp patterns (comma separated).
 
       Type: string[] (comma separated, without whitespaces)
       Default: []
@@ -204,7 +204,7 @@ inputs:
   reserved_strings:
     required: false
     description: > 
-      Disables transformation of string literals, which being matched by passed RegExp patterns (comma separated)
+      Disables transformation of string literals, which being matched by passed RegExp patterns (comma separated).
 
       Type: string[] (comma separated, without whitespaces)
       Default: []
@@ -219,7 +219,7 @@ inputs:
   self_defending:
     required: false
     description: > 
-      Disables self-defending for obfuscated code
+      Disables self-defending for obfuscated code.
 
       Type: boolean
       Default: false
@@ -227,7 +227,7 @@ inputs:
   simplify:
     required: false
     description: > 
-      Enables additional code obfuscation through simplification
+      Enables additional code obfuscation through simplification.
 
       Type: boolean
       Default: true
@@ -235,7 +235,7 @@ inputs:
   source_map:
     required: false
     description: > 
-      Enables source map generation
+      Enables source map generation.
 
       Type: boolean
       Default: false
@@ -243,7 +243,7 @@ inputs:
   source_map_base_url:
     required: false
     description: >
-      Sets base url to the source map import url when `--source-map-mode=separate`
+      Sets base url to the source map import url when `source_map_mode: separate`.
       
       Type: string
       Default: ''
@@ -251,7 +251,7 @@ inputs:
   source_map_file_name:
     required: false
     description: > 
-      Sets file name for output source map when `--source-map-mode=separate`
+      Sets file name for output source map when `source_map_mode: separate`.
 
       Type: string
       Default: ''
@@ -275,7 +275,7 @@ inputs:
   split_strings: 
     required: false
     description: > 
-      Splits literal strings into chunks with length of `splitStringsChunkLength` option value
+      Splits literal strings into chunks with length of `split_strings_chunk_length` option value.
       
       Type: boolean
       Default: false
@@ -283,7 +283,7 @@ inputs:
   split_strings_chunk_length:
     required: false
     description: > 
-      Sets chunk length of `splitStrings` option
+      Sets chunk length of `split_strings` option
       
       Type: number
       Default: 10
@@ -291,7 +291,7 @@ inputs:
   string_array:
     required: false
     description: > 
-      Enables gathering of all literal strings into an array and replacing every literal string with an array call
+      Enables gathering of all literal strings into an array and replacing every literal string with an array call.
       
       Type: boolean
       Default: true
@@ -299,7 +299,7 @@ inputs:
   string_array_calls_transform:
     required: false
     description: > 
-      Enables the transformation of calls to the string array
+      Enables the transformation of calls to the string array.
       
       Type: boolean
       Default: false
@@ -307,7 +307,7 @@ inputs:
   string_array_calls_transform_threshold:
     required: false
     description: > 
-      The probability that that calls to the string array will be transformed
+      The probability that that calls to the string array will be transformed.
 
       Type: number
       Default: 0.5
@@ -323,15 +323,15 @@ inputs:
   string_array_indexes_type:
     required: false
     description: > 
-      Encodes each string in strings array using base64 or rc4 (this option can slow down your code speed). Values: hexadecimal-number, hexadecimal-numeric-string. Default: hexadecimal-number
-
+      Allows to control the type of string array call indexes.
+      
       Type: string[] (comma separated, without whitespaces)
       Default: [] 
 
   string_array_index_shift:
     required: false
     description: > 
-      Enables additional index shift for all string array calls
+      Enables additional index shift for all string array calls.
 
       Type: boolean
       Default: true
@@ -339,7 +339,7 @@ inputs:
   string_array_rotate:
     required: false
     description: > 
-      Enable rotation of string array values during obfuscation
+      Enable rotation of string array values during obfuscation.
 
       Type: boolean
       Default: true
@@ -347,7 +347,7 @@ inputs:
   string_array_shuffle:
     required: false
     description: > 
-      Randomly shuffles string array items
+      Randomly shuffles string array items.
 
       Type: boolean
       Default: true
@@ -355,7 +355,7 @@ inputs:
   string_array_wrappers_count:
     required: false
     description: > 
-      Sets the count of wrappers for the string array inside each root or function scope
+      Sets the count of wrappers for the string array inside each root or function scope.
 
       Type: number
       Default: 1
@@ -363,7 +363,7 @@ inputs:
   string_array_wrappers_chained_calls: 
     required: false
     description: > 
-      Enables the chained calls between string array wrappers
+      Enables the chained calls between string array wrappers.
 
       Type: boolean
       Default: true
@@ -371,14 +371,14 @@ inputs:
   string_array_wrappers_parameters_max_count:
     required: false
     description: > 
-      Allows to control the maximum number of string array wrappers parameters
+      Allows to control the maximum number of string array wrappers parameters.
 
       Type: number
       Default: 2 
   string_array_wrappers_type:
     required: false
     description: > 
-      Allows to select a type of the wrappers that are appending by the `--string-array-wrappers-count` option. Values: variable, function. Default: variable
+      Allows to select a type of the wrappers that are appending by the `string_array_wrappers_count` option. Values: variable, function. Default: variable
 
       Type: string
       Default: 'variable'
@@ -386,7 +386,7 @@ inputs:
   string_array_threshold:
     required: false
     description: > 
-      The probability that the literal string will be inserted into stringArray (Default: 0.8, Min: 0, Max: 1)
+      The probability that the literal string will be inserted into `string_array` (Default: 0.8, Min: 0, Max: 1).
 
       Type: number
       Default: 0.8
@@ -394,7 +394,7 @@ inputs:
   target:
     required: false
     description: > 
-      Allows to set target environment for obfuscated code. Values: browser, browser-no-eval, node. Default: browser
+      Allows to set target environment for obfuscated code. Values: browser, browser-no-eval, node. Default: browser.
 
       Type: string
       Default: browser
@@ -402,7 +402,7 @@ inputs:
   transform_object_keys:
     required: false
     description: > 
-      Enables transformation of object keys
+      Enables transformation of object keys.
 
       Type: boolean
       Default: false   
@@ -410,7 +410,7 @@ inputs:
   unicode_escape_sequence:
     required: false
     description: > 
-      Allows to enable/disable string conversion to unicode escape sequence
+      Allows to enable/disable string conversion to unicode escape sequence.
 
       Type: boolean
       Default: false
