@@ -7,22 +7,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Cleanup workspace path
-        uses: mickem/clean-after-action@v1
-
       - name: Set current branch ref
         id: git_info
         run: |
-          echo "::set-output name=branch::${GITHUB_REF##*/}"
-          echo "::set-output name=hash::$(git rev-parse --short \"$GITHUB_SHA\")"
+          echo "branch=${GITHUB_REF##*/}" >> $GITHUB_OUTPUT
+          echo "hash=$(git rev-parse --short \"$GITHUB_SHA\")" >> $GITHUB_OUTPUT
 
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           ref: ${{ steps.git_info.outputs.branch }}
 
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
-          node-version: 14
+          node-version: 20
 
       - name: Execute without obfuscation
         run: |
@@ -107,25 +104,11 @@ jobs:
           unicode_escape_sequence: false
           target: node
 
-      - run: mkdir -p upload_files
-
-      - uses: vimtor/action-zip@v1
-        with:
-          files: dist_low_obfuscation/
-          dest: upload_files/dist_low_obfuscation.zip
-
-      - uses: vimtor/action-zip@v1
-        with:
-          files: dist_medium_obfuscation/
-          dest: upload_files/dist_medium_obfuscation.zip
-
-      - uses: vimtor/action-zip@v1
-        with:
-          files: dist_high_obfuscation/
-          dest: upload_files/dist_high_obfuscation.zip
-
       - name: upload files
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: obufscated_example_files
-          path: upload_files/
+          path: |
+            dist_low_obfuscation/
+            dist_medium_obfuscation/
+            dist_high_obfuscation/
